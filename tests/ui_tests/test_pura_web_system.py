@@ -18,16 +18,13 @@ def test_add_smart_device_to_cart(login, py):
     # py.get("button[aria-label='Close cart']").click(force=True)
 
 
-def test_add_volcano_fragrance_from_best_sellers_to_cart(login, pura, py):
+def test_add_volcano_fragrance_from_best_sellers_to_cart(login, pura):
 
-    py.getx("//a[text()='Shop']").hover()
-    py.get("[href='/collections/best-sellers']").click()
-    py.get(".ProductItem__Title a[href*='volcano']").scroll_into_view().click(force=True)
-    py.get("#one_time").click()
-    py.get("button[data-action='add-to-cart']").click()
+    pura.py.getx("//a[text()='Shop']").hover()
+    pura.py.get("[href='/collections/best-sellers']").click()
+    pura.py.get(".ProductItem__Title a[href*='volcano']").scroll_into_view().click(force=True)
+    pura.py.get("#one_time").click()
+    pura.py.get("button[data-action='add-to-cart']").click()
 
-    assert "volcano" in pura.header_nav.get_list_of_titles_in_cart()
-
-
-
+    assert "volcano" in pura.header_nav.get_list_of_titles_in_suggested_area_of_cart()
 
