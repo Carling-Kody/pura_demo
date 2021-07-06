@@ -26,8 +26,9 @@ def test_show_pura_my_coding_skills(pura):
     '''Some Kind of Assert'''
     # Go to Checkout Check the sum is correct
     pura.py.get("#cart-drawer-checkout-button").click(force=True)
+    '''Some Kind of Assert'''
     # Provide email address
-    pura.py.get("#checkout_email").type("kodycarling19@gmail.com")
+    pura.py.get("#checkout_email").type("kodycarling19@testgmail.com")
     # Apply discount code VIP3Z09T7GQ9 - 20 % discount
     pura.py.get("#show-discount-form-link").click()
     pura.py.get("#checkout_discount_code").type("PURASPRING")
@@ -38,5 +39,6 @@ def test_show_pura_my_coding_skills(pura):
     pura.py.get("#continue-button").scroll_into_view()
     pura.py.webdriver.find_element_by_link_text("< Return to cart").click()
     # remove all items from the cart Verify the Cart is empty
-    
-    pura.py.wait(use_py=True).sleep(10)
+    pura.cart.remove_all_items_from_cart()
+    assert "Your cart is empty" in pura.py.get(".EmptyState").text()
+    pura.py.wait(use_py=True).sleep(5)
