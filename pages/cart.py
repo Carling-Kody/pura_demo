@@ -18,12 +18,13 @@ class Cart:
 
     @staticmethod
     def calculate_sub_total(items: list) -> float:
+        # adds all floats and integers in the provided list and returns the total
         total = 0
         for item in range(0, len(items)):
             total = total + items[item]
         return total
 
-    def remove_all_items_from_cart(self):
+    def remove_two_items_from_cart(self):
         self.py.get(self.CART_REMOVE_ITEM_LINK).click(force=True)
         self.py.wait(use_py=True).sleep(1)
         self.py.get(self.CART_REMOVE_ITEM_LINK).click(
