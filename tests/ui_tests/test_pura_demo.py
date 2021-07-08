@@ -44,5 +44,5 @@ def test_show_pura_my_coding_skills(pura):
     # Do not continue to Checkout, Go back to Cart
     pura.checkout.return_to_cart()
     # remove all items from the cart Verify the Cart is empty
-    pura.cart.remove_all_items_from_cart()
+    pura.cart.remove_two_items_from_cart()
     assert "Your cart is empty" in pura.py.get(".EmptyState").text()

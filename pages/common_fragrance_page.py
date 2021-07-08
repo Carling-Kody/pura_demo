@@ -15,7 +15,11 @@ class CommonFragrancePage:
     # Actions
 
     def get_one_time_purchase_price(self) -> int:
+        """ grabs the text from the one time purchase price div
+                 and then strips off the $ sign and converts the string to an integer """
         return int(self.py.get(self.ONE_TIME_PURCHASE_PRICE_CONTAINER).text()[1:])
 
     def get_recurring_purchase_price(self) -> float:
+        """ grabs the text from the recurring price div
+                         and then strips off the $ sign and converts the string to a float """
         return float(self.py.get(self.RECURRING_PURCHASE_PRICE_CONTAINER).text()[1:])

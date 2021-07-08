@@ -17,13 +17,16 @@ class Checkout:
     # Actions
 
     def get_payment_due_amount(self) -> float:
+        """ grabs the text from the payment due amount div
+         and then strips off the $ sign and converts the string to a float """
         return float(self.py.get(self.PAYMENT_DUE_AMOUNT_DIV).text()[1:])
 
     def apply_discount_code(self, code: str, payment_due_before_discount: str):
+        """ Applies the discount code given and checks to make sure the payment due amount is recalculated """
         self.py.get(self.DISCOUNT_LINK).click()
         self.py.get(self.DISCOUNT_INPUT).type(code)
         self.py.get(self.DISCOUNT_APPLY_BUTTON).click()
-        self.py.wait(use_py=True).sleep(2)
+        self.py.wait(use_py=True).sleep(1)
 
     def return_to_cart(self):
         self.py.get(self.CONTINUE_BUTTON).scroll_into_view()
