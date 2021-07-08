@@ -38,7 +38,7 @@ def test_show_pura_my_coding_skills(pura):
     # Apply discount code VIP3Z09T7GQ9 - 20 % disc I used "PURASPRING" because the code I was given would not work
     pura.checkout.apply_discount_code(test_discount_code, payment_amount_due)
     '''I manually did the next step, but hope there is an endpoint where I can return a list of discount codes with 
-     values :)''' 
+     values :)'''
     discount_amount = float(format(payment_amount_due*.15, '.2f'))
     payment_due_after_discount_applied = pura.checkout.get_payment_due_amount()
     # Verify the sum is recalculated correctly
