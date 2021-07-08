@@ -21,7 +21,7 @@ class Checkout:
          and then strips off the $ sign and converts the string to a float """
         return float(self.py.get(self.PAYMENT_DUE_AMOUNT_DIV).text()[1:])
 
-    def apply_discount_code(self, code: str, payment_due_before_discount: str):
+    def apply_discount_code(self, code: str):
         """ Applies the discount code given and checks to make sure the payment due amount is recalculated """
         self.py.get(self.DISCOUNT_LINK).click()
         self.py.get(self.DISCOUNT_INPUT).type(code)

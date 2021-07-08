@@ -41,7 +41,7 @@ def test_show_pura_my_coding_skills(pura):
     # Provide email address
     pura.py.get(pura.checkout.EMAIL_INPUT).type(test_email_address)
     # Apply discount code VIP3Z09T7GQ9 - 20 % disc
-    pura.checkout.apply_discount_code(test_discount_code, payment_amount_due)
+    pura.checkout.apply_discount_code(test_discount_code)
     '''I manually did the next step, but hope there is an endpoint where I can return a list of discount codes with 
      values :)'''
     discount_amount = float(format(payment_amount_due*.20, '.2f'))
