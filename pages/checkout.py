@@ -26,7 +26,7 @@ class Checkout:
         self.py.get(self.DISCOUNT_LINK).click()
         self.py.get(self.DISCOUNT_INPUT).type(code)
         self.py.get(self.DISCOUNT_APPLY_BUTTON).click()
-        self.py.wait(use_py=True).sleep(1)
+        self.py.wait(use_py=True).sleep(2)
 
     def return_to_cart(self):
         self.py.get(self.CONTINUE_BUTTON).scroll_into_view()
